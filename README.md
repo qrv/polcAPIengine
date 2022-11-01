@@ -1,16 +1,17 @@
-# polcAPIengine
+# polcAPIengine 
 Pol Consulting
 
-## Integrasjon filosofi
+## Integrasjons filosofi
 ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
 
 
 ## post SAT, med Postman og manuell import i DeleNett
 Før iPhone-app kobles mot polcAPIengine må 'Site Acceptance Test' utføres på alle post-apiene.
-Postman brukes altså til å simulere iPhonens kommunikasjon mot polcAPIenine, deretter kjøres import i DeleNett. Hele poenget med SAT er å verifiserer at hver enkelt post-api gir et menigsfullt resultat i DeleNett.
+Postman brukes altså til å simulere iPhonens kommunikasjon mot polcAPIengine, deretter kjøres import i DeleNett. Hele poenget med SAT er å verifiserer at hver enkelt post-api gir et menigsfullt resultat i DeleNett.
 
 ### api-prefix
 api-prefix må fremskaffes til bruk i Postman.  Den finner du ved å åpne polcAPIengine på lokal server (http://192.168.xxx) og gå til get_iphone_init apien.  Apien er listet rett under versjonen til polcAPIengine. 
+
 ![get-iPhone init](https://user-images.githubusercontent.com/16031302/198873801-f9ae04c6-8857-4139-846d-b60ee1766bc7.png)
 
 Host elementet i JSON responsen peker mot din lokale polcAPIengine, merk at urlen slutter med en 'forward slash' /  Du skal ikke bruke lokal serveradresse av type http://192.168.xxx under disse testene, men altså den offisielle adressen gitt i host-elementet.
