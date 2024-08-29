@@ -1,5 +1,5 @@
 # polcAPIengine 
-Pol Consulting
+P.O.L Consulting
 
 ## Integrasjons filosofi
 ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
