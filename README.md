@@ -1,9 +1,19 @@
-# polcAPIengine 
-P.O.L Consulting
+# P.O.L. Consulting
+polcAPIengine 
+<details>
+  <summary>Introduksjon</summary>
 
 ## Integrasjons filosofi
 ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
 
+</details>
+
+<details>
+  <summary>Installasjon iPhone</summary>
+</details>
+
+<details>
+  <summary>API</summary>
 
 ## post SAT, med Postman og manuell import i DeleNett
 Før iPhone-app kobles mot polcAPIengine må 'Site Acceptance Test' utføres på alle post-apiene.
@@ -58,4 +68,4 @@ Denne apien er lik post-img-deler men brukes til å laste opp bilder av biler.
 
 ![ShareX_VQkVmR4l9d](https://user-images.githubusercontent.com/16031302/198852516-323d1507-23a4-4539-a11a-ca695eb748b7.png)
 
-
+</details>
