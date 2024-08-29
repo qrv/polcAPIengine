@@ -1,26 +1,35 @@
 # polcAPIengine
 
-<details>
-  <summary>Introduksjon</summary>
+<details><summary>Introduksjon</summary>
 
-<!-- ## Integrasjons filosofi -->
-
+## Muligheter
 ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
-
 </details>
 
-<details>
-  <summary>Installasjon iPhone</summary>
+<details><summary>Idriftsettelse</summary>
+  Nedenfor er beskrevet ulike faser og funksjoner som kreves for en fullverdig løsning.
 
-  ## Metode
-  Når bruker er aktivert i skadebil og iTunes kan installasjon av app og testing av bruker gjennomføres som beskrevet nedenfor.
 
- ![install_02](https://github.com/user-attachments/assets/33f8bbaf-0bdd-41ac-b4bf-f3476e2d71d4)
+<details><summary>Installasjon iPhone</summary>
 
+## skadebil / iTunes
+Når bruker er aktivert i skadebil og iTunes kan installasjon av app og testing av bruker gjennomføres som beskrevet nedenfor.
+![install_02](https://github.com/user-attachments/assets/33f8bbaf-0bdd-41ac-b4bf-f3476e2d71d4)
+</details>
+  
+<details><summary>DNS / PAT </summary>
+
+## Ruting, SSL
+Kunde er selv ansvarlig for å åpne porter inn mot polcAPIengine som normalt skal installeres på Delenett server på port 8443 e.l.  
+
+I lokalinstallasjon vil nginx være et godt alternativ som revers proxy særlig dersom ssl sertifikater er tilgjenglige og man ønsker å benytte https.
+
+Dersom man ønsker å holde kommunikasjonen intern er dette også mulig, men det blir utført en 'Hand Shake' under start av appen for å validere brukeren, som krever internett forbindelse.
+  
+</details>
 </details>
 
-<details>
-  <summary>API</summary>
+<details><summary>API</summary>
 
 ## post SAT, med Postman og manuell import i DeleNett
 
