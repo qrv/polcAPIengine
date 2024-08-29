@@ -6,10 +6,6 @@
 ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
 </details>
 
-<details><summary>Idriftsettelse</summary>
-  Nedenfor er beskrevet ulike faser og funksjoner som kreves for en fullverdig løsning.
-
-
 <details><summary>Installasjon iPhone</summary>
 
 ## skadebil / iTunes
@@ -24,9 +20,7 @@ Kunde er selv ansvarlig for å åpne porter inn mot polcAPIengine som normalt sk
 
 I lokalinstallasjon vil nginx være et godt alternativ som revers proxy særlig dersom ssl sertifikater er tilgjenglige og man ønsker å benytte https.
 
-Dersom man ønsker å holde kommunikasjonen intern er dette også mulig, men det blir utført en 'Hand Shake' under start av appen for å validere brukeren, som krever internett forbindelse.
-  
-</details>
+Dersom man ønsker å holde kommunikasjonen intern er dette også mulig, men det blir utført en 'Hand Shake' under start av appen for å validere brukeren, som krever internett forbindelse.  
 </details>
 
 <details><summary>API</summary>
