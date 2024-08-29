@@ -11,7 +11,10 @@
 
 <details>
   <summary>Installasjon iPhone</summary>
-  
+
+  ## Metode
+  Når bruker er aktivert i skadebil og iTunes kan installasjon av app og testing av bruker gjennomføres som beskrevet nedenfor.
+
  ![install_02](https://github.com/user-attachments/assets/33f8bbaf-0bdd-41ac-b4bf-f3476e2d71d4)
 
 </details>
