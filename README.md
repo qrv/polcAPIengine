@@ -9,11 +9,14 @@
 <details><summary>Installasjon iPhone</summary>
 
 ## skadebil / iTunes
+
+<span id="fase1"></span>
+
 Når bruker er aktivert i skadebil og iTunes kan installasjon av app og testing av bruker gjennomføres som beskrevet nedenfor.
 ![install_02](https://github.com/user-attachments/assets/33f8bbaf-0bdd-41ac-b4bf-f3476e2d71d4)
 </details>
   
-<details><summary>DNS / PAT </summary>
+<details><summary>DNS / PAT></summary>
 
 ## Ruting, SSL
 Kunde er selv ansvarlig for å åpne porter inn mot polcAPIengine som normalt skal installeres på Delenett server på port 8443 e.l.  
