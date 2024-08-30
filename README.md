@@ -21,6 +21,34 @@
   Dersom man ønsker å holde kommunikasjonen intern er dette også mulig, men det blir utført en 'Handshake' under start av appen for å validere brukeren, dette krever internett forbindelse.  
   </details>
 
+<details><summary>Test av app</summary><span id="fase3"></span>
+
+  Både QR-, eller strekkoder kan brukes av app.  For å skille mellom biler og deler er B brukt som prefiks for deler, mens X brukes som prefiks på biler.
+  <br>
+  Dersom ikke høvelige delelapper er tilgjengelig under test kan testnummer lages her:
+  - https://qr.io/
+  - https://barcode.tec-it.com/en
+
+  ![fase3_a_01](https://github.com/user-attachments/assets/9e19d62d-3d8c-475c-a132-2d058a12ed97)
+      
+  Nedenfor er vist man går frem for å skanne inn bilder på del B428135
+    
+  ![fase3_b_01](https://github.com/user-attachments/assets/31c4c45b-4191-4a97-b263-2bfe5e727e15)
+  <br><br><br><br><br><br>
+  ![fase3_c_01](https://github.com/user-attachments/assets/d0872b82-0a78-4ba4-b8a7-0a7e80c9a3a4)
+  <br><br><br><br>
+  Dersom man går til polcAPIengine fra en browser vil man se status på opplastede bilder og tilhørende csv filer som brukes av delenett til import. Dersom ikke runtime versjonen av polcAPIengine er installert kan genererte filer kopieres fra testserver til lokalinstallasjon på:
+  - server f.eks 192.168.1.2
+  - csv katalog f.eks ...LexitInn
+  - bildekatalog f.eks ...LexitInn+LexitBilder
+  <br><br>
+  ![fase3dc_01](https://github.com/user-attachments/assets/e7c47723-7ee4-481c-b9b0-2cdda7eba500)
+  </details>
+
+<details><summary>Runtime</summary><span id="fase4"></span>
+  Siste versjon av polcAPI runtime kan hentes fra https://github.com/qrv/polcAPIengine/tree/main/runtime
+  ini-fil vil inneholde kundespesifikke opplysninger vil bli oversendt pr mail.  
+
 <details><summary>API</summary>
 
 ## post SAT, med Postman og manuell import i DeleNett
