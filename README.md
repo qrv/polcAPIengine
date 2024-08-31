@@ -5,6 +5,8 @@
   ![integrasjon_07](https://user-images.githubusercontent.com/16031302/198845916-c8b893d6-43c5-4454-9e49-5d5c8627ca21.png)
   </details>
 
+
+
 <details><summary>Installasjon iPhone</summary><span id="fase1"></span>   <!-- https://github.com/qrv/polcAPIengine?tab=readme-ov-file#user-content-fase'1 -->
 
   Når bruker er aktivert i skadebil og iTunes kan installasjon av app og testing av bruker gjennomføres som beskrevet nedenfor.
@@ -12,22 +14,34 @@
   ![install_02](https://github.com/user-attachments/assets/33f8bbaf-0bdd-41ac-b4bf-f3476e2d71d4)
   </details>
   
+
+
 <details><summary>DNS / PAT></summary><span id="fase2"></span>
 
-  Kunde er selv ansvarlig for å åpne porter inn mot polcAPIengine som normalt skal installeres på Delenett server.  Portene er konfigurerbare men default er satt til 8443.
+  Kunde er selv ansvarlig for å åpne porter inn mot polcAPIengine som normalt skal installeres på Delenett server.  Portene er konfigurerbare men default er satt til 8443 over http.
 
-  I lokalinstallasjon vil nginx være et godt alternativ som revers proxy særlig dersom ssl sertifikater er tilgjenglige og man ønsker å benytte https.
+  I lokalinstallasjon vil nginx være et godt alternativ som revers proxy særlig dersom ssl sertifikater er tilgjenglige og man ønsker å benytte https.  Det er forøvrig lagt til rette for direkte https mot polcAPIengine dersom det er ønskelig.
 
   Dersom man ønsker å holde kommunikasjonen intern er dette også mulig, men det blir utført en 'Handshake' under start av appen for å validere brukeren, dette krever internett forbindelse.  
+
+  Dersom DNS i produksjonsdomene er problematisk kan https://account.dyn.com/ brukes.
   </details>
+
+
+
 
 <details><summary>Test av app</summary><span id="fase3"></span>
 
   Både QR-, eller strekkoder kan brukes av app.  For å skille mellom biler og deler er B brukt som prefiks for deler, mens X brukes som prefiks på biler.
   <br>
+  Følgende scannere er testet og virker uten spesielle tilpasninger:
+   - Symbol CS4070
+   - Netcum C750
+
   Dersom ikke høvelige delelapper er tilgjengelig under test kan testnummer lages her:
   - https://qr.io/
   - https://barcode.tec-it.com/en
+
 
   ![fase3_a_01](https://github.com/user-attachments/assets/9e19d62d-3d8c-475c-a132-2d058a12ed97)
       
@@ -45,11 +59,58 @@
   ![fase3dc_01](https://github.com/user-attachments/assets/e7c47723-7ee4-481c-b9b0-2cdda7eba500)
   </details>
 
+
+
+
+
 <details><summary>Runtime</summary><span id="fase4"></span>
   Siste versjon av polcAPI runtime kan hentes fra https://github.com/qrv/polcAPIengine/tree/main/runtime
-  ini-fil vil inneholde kundespesifikke opplysninger vil bli oversendt pr mail. Filen skal være selvforklarende og kan brukes 'As is'. Den skal plasseres på samme katalog som exe-filen  
-  <br><br>
+
+  ini-fil vil inneholde kundespesifikke opplysninger vil bli oversendt pr mail. Filen skal være selvforklarende og kan brukes 'As is'. Den skal plasseres på samme katalog som exe-filen.
+
+  For å overvåke applikasjonen kan AlwaysUp brukes https://www.coretechnologies.com/products/AlwaysUp/ eller en variant av batch fil vist under:
+  ```bat
+        @echo off
+        REM Wait for 30 seconds to ensure all services are up
+        timeout /t 30 /nobreak
+
+        REM Change directory to where the executable is located
+        cd /d C:\Data\DeleNett\POL\runtime
+
+        :check_running
+        REM Check if polcAPIengine.exe is already running
+        tasklist /FI "IMAGENAME eq polcAPIengine.exe" 2>NUL | find /I "polcAPIengine.exe" > NUL
+        if "%ERRORLEVEL%"=="0" (
+            echo polcAPIengine.exe is already running. Exiting.
+            pause
+            exit /B
+        )
+
+        :start
+        echo Starting polcAPIengine...
+        start "polcAPIengine" cmd /k "polcAPIengine.exe"
+        if "%ERRORLEVEL%" NEQ "0" (
+            echo Failed to start polcAPIengine.exe.
+            pause
+            exit /B
+        )
+        echo polcAPIengine started successfully.
+
+        :wait_and_check
+        REM Wait and check if the program is still running
+        timeout /t 5 /nobreak
+        tasklist /FI "IMAGENAME eq polcAPIengine.exe" 2>NUL | find /I "polcAPIengine.exe" > NUL
+        if "%ERRORLEVEL%"=="0" (
+            goto wait_and_check
+        )
+        echo polcAPIengine crashed. Restarting in 5 seconds...
+        timeout /t 5 /nobreak
+        goto start
+  ``` 
+
   </details>
+
+
 
 <details><summary>API</summary>
 
