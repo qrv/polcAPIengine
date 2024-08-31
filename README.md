@@ -47,7 +47,9 @@
 
 <details><summary>Runtime</summary><span id="fase4"></span>
   Siste versjon av polcAPI runtime kan hentes fra https://github.com/qrv/polcAPIengine/tree/main/runtime
-  ini-fil vil inneholde kundespesifikke opplysninger vil bli oversendt pr mail.  
+  ini-fil vil inneholde kundespesifikke opplysninger vil bli oversendt pr mail. Filen skal være selvforklarende og kan brukes 'As is'. Den skal plasseres på samme katalog som exe-filen  
+  <br><br>
+  </details>
 
 <details><summary>API</summary>
 
