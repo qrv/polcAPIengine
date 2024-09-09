@@ -110,6 +110,79 @@
 
   </details>
 
+<details><summary>Database Gateway</summary><span id="fase5"></span>
+  For å koble opp mot MSSQL som hoster Delenett-databasen trenges modifisering av ini-fil samt noen nye view og en referanse-tabell.
+  
+
+  ### ini-filen
+  ini-filen er også er beskrevet i https://github.com/qrv/polcAPIengine?tab=readme-ov-file#user-content-fase4
+  <br>Seksjonene YMSE og MSSQL modifiseres som angitt under,  husk at polcAPIengine må restartes for at endringene i ini-filen skal effektueres.
+
+
+  ```ini
+    # YMSE
+      # MSSQL tilgang krever at POLC_ACCESS_TOKEN er i samsvar med med innlogget brukers skadebil.site_id_gu
+      # token og nødvendig sql-script blir utlevert dersom MSSQL integrasjon med delenett ønskes
+      POLC_ACCESS_TOKEN='hex'           # site xxx
+
+    # MS-SQL                    inregrasjon Delenett sql database
+      # Alle verdier som trengs for under kan hentes i lokalt oppsett av Delenett på C:\Data\DeleNett\System\Innstillinger.txt
+      # C:\Data\DeleNett er i dette tilfelle lokal katalog hvor MSSQL databasen er installert.
+      MS_YN       = 'Y'                                                   # Y MSSQL gateway brukes,  N deaktiverer gatewayen 
+      MS_PORT     = '1433'                                                # Port standard port som må åpnes i Firewall er tcp 1433 og udp 1434 for SQL Browser
+      MS_SERVER   = 'XXX\SQLEXPRESS'                                      # SQLServer / servername
+      MS_USER     = 'bruker'                                              # Brukernavn
+      MS_PWD      = 'passord'                                             # Passord
+      MS_DB       = 'DeleNett'                                            # Database, antar TabellEier er dbo på alle installasjoner, men dette overstyres av scipt som brukes
+      MS_SQL1     = 'select top (10) bilmerkenr, navn from dbo.bilmerke'  # Test-script som logges ved oppstart av polcAPIengine som quick and dirty test av gateway
+
+  ``` 
+
+  Som angitt over er ini-filen en god plass å teste sql-script. Ved oppstart vil MS_SQL1 statmentet eksekveres og resultatet listes ut i konsollet.
+  <br>Da må man altså starte polcAPIengine direkte i kommandoprompten eller så kan loggen fra en service pipes til en fil.
+  <br>Typisk listing  ```MS_SQL1 = select top (10) bilmerkenr, navn from dbo.bilmerke'```  er vist under:
+
+  ```js
+      MS-SQL status ...
+      SSL=N, protokoll=http, port=8443 --> url=http://192.168.1.123:8443
+          ver4 startes fra url=http://192.168.1.123:8443
+          Running version polcAPIengine_2024_03_12_01 Server 192.168.1.123
+          ver3/4 server running...
+      {
+        recordsets: [
+          [
+            [Object], [Object],
+            [Object], [Object],
+            [Object], [Object],
+            [Object], [Object],
+            [Object], [Object]
+          ]
+        ],
+        recordset: [
+          { bilmerkenr: 1, navn: 'XPENG' },
+          { bilmerkenr: 2, navn: 'DAIHATSU' },
+          { bilmerkenr: 3, navn: 'BUICK' },
+          { bilmerkenr: 4, navn: 'CADILLAC' },
+          { bilmerkenr: 5, navn: 'JAGUAR' },
+          { bilmerkenr: 6, navn: 'FORD LASTEBIL UTGÅR' },
+          { bilmerkenr: 7, navn: 'IVECO' },
+          { bilmerkenr: 8, navn: 'LASTEBIL' },
+          { bilmerkenr: 9, navn: 'SCANIA LASTEBIL UTGÅR' },
+          { bilmerkenr: 10, navn: 'VOLVO LASTEBIL UTGÅR' }
+        ],
+        output: {},
+        rowsAffected: [ 10 ]
+      }
+  ``` 
+
+  ### view og tabell
+    Microsoft SQL Server Management Studio e.l. brukes til å legge inn view og tabell.  
+    
+    Scriptene vises ikke i denne delen av dokumentasjonen med oversendes separat.
+
+  </details>
+
+
 
 
 <details><summary>API</summary>
