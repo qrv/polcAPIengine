@@ -126,7 +126,7 @@
       POLC_ACCESS_TOKEN='hex'           # site xxx
 
     # MS-SQL                    inregrasjon Delenett sql database
-      # Alle verdier som trengs for under kan hentes i lokalt oppsett av Delenett på C:\Data\DeleNett\System\Innstillinger.txt
+      # Alle verdier som trengs under kan hentes i lokalt oppsett av Delenett på C:\Data\DeleNett\System\Innstillinger.txt
       # C:\Data\DeleNett er i dette tilfelle lokal katalog hvor MSSQL databasen er installert.
       MS_YN       = 'Y'                                                   # Y MSSQL gateway brukes,  N deaktiverer gatewayen 
       MS_PORT     = '1433'                                                # Port standard port som må åpnes i Firewall er tcp 1433 og udp 1434 for SQL Browser
@@ -173,14 +173,13 @@
         output: {},
         rowsAffected: [ 10 ]
       }
+
   ``` 
-
   ### view og tabell
-    Microsoft SQL Server Management Studio e.l. brukes til å legge inn view og tabell.  
-    
-    Scriptene vises ikke i denne delen av dokumentasjonen med oversendes separat.
+  Microsoft SQL Server Management Studio e.l. brukes til å legge inn view og tabell.
+  <br>Scriptene vises ikke i denne delen av dokumentasjonen med oversendes separat.
 
-  </details>
+</details>
 
 
 
