@@ -182,6 +182,51 @@
 </details>
 
 
+<details><summary>Logg på polcAPIengine</summary>
+
+  ## Daglig oppfølging
+  Status på import av filer må følges opp kontinuerlig for å evnt å plukke opp feil som kan ha oppstått i:
+  <br>
+
+
+   - selve skanne prosessen (ugyldige, strekkoder, etc.)
+   - polcAPIengine
+   - Delnett import
+
+  Typisk så kan status se som ut vist under:
+
+  ![chrome_r1eKkKAXq8](https://github.com/user-attachments/assets/7a883e4c-4c17-4ae3-81f2-f29219a07a40)
+  
+  ## Hvordan logge på
+  Det enkleste er å sjekke status fra en nettleser, men verktøy som Postman kan alternativt brukes.
+
+  For å få tilgang må en http-header sendes sammen med forespørselen,  denne utleveres ved installasjon.
+
+  Dersom nettleseren brukes vil det være enklest å sende http-header med ett av de følgende alternativene:
+  - https://requestly.com/    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(best, kan virke gratis hvis du har litt flaks)
+  - https://modheader.com/    &nbsp;&nbsp;(gratis og god nok...)
+
+  Nedefor er vist hvordan man går fram for å legge til modheader utvidelsen i chrome
+
+  ![modheader_1](https://github.com/user-attachments/assets/048cd96f-6e88-4f1c-b81c-60488ebbceb5)
+
+  ![modheader_2](https://github.com/user-attachments/assets/a3f8d773-7b6e-44f2-abef-cef1797961d8)
+
+  ![modheader_3](https://github.com/user-attachments/assets/e5d6ffcc-1e85-44c1-b61a-e63b9eda13bd)
+
+  ![modheader_4](https://github.com/user-attachments/assets/a06ff4be-4a60-488e-820e-76cbed00eb17)
+
+  ![modheader_5](https://github.com/user-attachments/assets/8ac94675-3bc2-4a8f-bfca-aba6dfc8e4e3)
+
+  ![modheader_6](https://github.com/user-attachments/assets/2abccadd-4f07-4e0b-ba65-172cf2518ae9)
+
+
+
+
+
+
+
+</details>
 
 
 <details><summary>API</summary>
